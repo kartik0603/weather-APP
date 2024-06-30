@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  transition: background 0.5s ease-in-out;
+}
+
+body.clear-sky {
+  background: linear-gradient(to top, #56ccf2 0%, #2f80ed 100%);
+}
+
+body.clouds {
+  background: linear-gradient(to top, #bdc3c7 0%, #2c3e50 100%);
+}
+
+body.rain {
+  background: linear-gradient(to top, #000428 0%, #004e92 100%);
+}
+
+body.snow {
+  background: linear-gradient(to top, #e6dada 0%, #274046 100%);
+}
+
+body.thunderstorm {
+  background: linear-gradient(to top, #141e30 0%, #243b55 100%);
+}
+
+body.fog {
+  background: linear-gradient(to top, #757f9a 0%, #d7dde8 100%);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  width: calc(100% - 44px);
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border: 1px solid #007BFF;
+  outline: none;
+}
+
+input[type="submit"] {
+  padding: 12px 20px;
+  border: none;
+  background: #007BFF;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+.weather-info {
+  display: none;
+}
+
+.weather-info.active {
+  display: block;
+}
+
+.weather-info h2 {
+  margin: 10px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.weather-icon {
+  width: 60px;
+  margin-bottom: 10px;
+}
