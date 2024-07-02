@@ -7,14 +7,35 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <video id="clear-sky" class="background-video" autoplay loop muted>
+      <source src="clear Sky.mp4" type="video/mp4">
+    </video>
+    <video id="clouds" class="background-video" autoplay loop muted>
+      <source src="clouds.mp4" type="video/mp4">
+    </video>
+    <video id="rain" class="background-video" autoplay loop muted>
+      <source src="raining.mp4" type="video/mp4">
+    </video>
+    <video id="snow" class="background-video" autoplay loop muted>
+      <source src="snow.mp4" type="video/mp4">
+    </video>
+    <video id="thunderstorm" class="background-video" autoplay loop muted>
+      <source src="thunder strom.mp4" type="video/mp4">
+    </video>
+    <video id="fog" class="background-video" autoplay loop muted>
+      <source src="fog.mp4" type="video/mp4">
+    </video>
+    <video id="haze" class="background-video" autoplay loop muted>
+      <source src="haze.mp4" type="video/mp4">
+    </video>
+
     <div class="container">
       <form id="search">
         <input type="text" id="cityName" placeholder="Enter city name" />
         <input type="submit" value="Get Weather" />
       </form>
-      <div id="data" class="weather-info">
-        
-      </div>
+      <div id="live-location" class="weather-info"></div>
+      <div id="data" class="weather-info"></div>
     </div>
     <script src="./index.js"></script>
   </body>

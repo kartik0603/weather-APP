@@ -1,62 +1,80 @@
-const getData = async (cityName) => {
-    let weatherReq = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b4c426c91009e3429c4af53c61fd6e9c&units=metric`);
-    let weatherRes = await weatherReq.json();
-    
-    displayData(weatherRes);
+const apiKey = 'b4c426c91009e3429c4af53c61fd6e9c';
+
+const getData = async (url, elementId) => {
+  let weatherReq = await fetch(url);
+  let weatherRes = await weatherReq.json();
+  
+  displayData(weatherRes, elementId);
+  if (elementId === 'data') {  
     setWeatherBackground(weatherRes.weather[0].main);
-  };
+  }
+};
+
+const setWeatherBackground = (weatherCondition) => {
+  const videos = document.querySelectorAll('.background-video');
+  videos.forEach(video => video.style.display = 'none');
   
-  const setWeatherBackground = (weatherCondition) => {
-    document.body.className = '';
-    switch (weatherCondition.toLowerCase()) {
-      case 'clear':
-        document.body.classList.add('clear-sky');
-        break;
-      case 'clouds':
-        document.body.classList.add('clouds');
-        break;
-      case 'rain':
-        document.body.classList.add('rain');
-        break;
-      case 'snow':
-        document.body.classList.add('snow');
-        break;
-      case 'thunderstorm':
-        document.body.classList.add('thunderstorm');
-        break;
-      case 'fog':
-      case 'mist':
-      case 'haze':
-        document.body.classList.add('fog');
-        break;
-      default:
-        document.body.classList.add('clear-sky');
-        break;
-    }
-  };
+  switch (weatherCondition.toLowerCase()) {
+    case 'clear':
+      document.getElementById('clear-sky').style.display = 'block';
+      break;
+    case 'clouds':
+      document.getElementById('clouds').style.display = 'block';
+      break;
+    case 'rain':
+      document.getElementById('rain').style.display = 'block';
+      break;
+    case 'snow':
+      document.getElementById('snow').style.display = 'block';
+      break;
+    case 'thunderstorm':
+      document.getElementById('thunderstorm').style.display = 'block';
+      break;
+    case 'fog':
+    // case 'mist':
+    // case 'haze':
+      document.getElementById('fog').style.display = 'block';
+      break;
+    case 'haze':
+      document.getElementById('haze').style.display = 'block';
+      break;
+    default:
+      document.getElementById('clear-sky').style.display = 'block';
+      break;
+  }
+};
+
+const displayData = (data, elementId) => {
+  const weatherInfo = document.getElementById(elementId);
+  const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   
-  const displayData = (data) => {
-    const weatherInfo = document.getElementById('data');
-    const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-  
-    weatherInfo.innerHTML = `
-      <h2>${data.name}, ${data.sys.country}</h2>
-      <img src="${iconUrl}" alt="${data.weather[0].description}" class="weather-icon">
-      <p>${data.weather[0].main}: ${data.weather[0].description}</p>
-      <p>Temperature: ${data.main.temp}°C (Feels like: ${data.main.feels_like}°C)</p>
-      <p>Humidity: ${data.main.humidity}%</p>
-      <p>Pressure: ${data.main.pressure} hPa</p>
-      <p>Wind: ${data.wind.speed} m/s at ${data.wind.deg}°</p>
-      <p>Visibility: ${data.visibility} meters</p>
-    `;
-    weatherInfo.classList.add('active');
-  };
-  
-  const handleData = (e) => {
-    e.preventDefault();
-    let cityName = document.getElementById('cityName').value;
-    getData(cityName);
-  };
-  
-  document.getElementById("search").addEventListener("submit", handleData);
-  
+  weatherInfo.innerHTML = `
+    <h1>${data.name}, ${data.sys.country}</h1>
+    <img src="${iconUrl}" alt="${data.weather[0].description}" class="weather-icon">
+    <p>${data.weather[0].main}: ${data.weather[0].description}</p>
+    <h2>Temperature: ${data.main.temp}°C (Feels like: ${data.main.feels_like}°C)</h2>
+    <p>Humidity: ${data.main.humidity}%</p>
+    <p>Pressure: ${data.main.pressure} hPa</p>
+    <p>Wind: ${data.wind.speed} m/s at ${data.wind.deg}°</p>
+    <p>Visibility: ${data.visibility} meters</p>
+  `;
+  weatherInfo.classList.add('active');
+};
+
+const handleData = (e) => {
+  e.preventDefault();
+  let cityName = document.getElementById('cityName').value;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  getData(apiUrl, 'data');
+};
+
+const getCurrentLocationWeather = () => {
+  navigator.geolocation.getCurrentPosition(async (position) => {
+    const { latitude, longitude } = position.coords;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    getData(apiUrl, 'live-location');
+  });
+};
+
+document.getElementById("search").addEventListener("submit", handleData);
+document.addEventListener("DOMContentLoaded", getCurrentLocationWeather);
