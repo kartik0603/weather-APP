@@ -109,7 +109,15 @@ input[type="submit"]:hover {
 
 @media (max-width: 768px) {
   .container {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
+ 
+    text-align: center;
+   width: 55vw;
+   height: max-content;
+   
+    display: flex;
+    justify-content: center;
+    
   }
 
   input[type="text"],
@@ -118,17 +126,17 @@ input[type="submit"]:hover {
   }
 
   .weather-info h2 {
-    font-size: 20px;
-    display: flex;
+    font-size: 15px;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .weather-info p {
-    font-size: 14px;
-    display: flex;
+    font-size: 12px;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .weather-icon {
@@ -157,18 +165,7 @@ body {
   overflow: hidden;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.9);
-  opacity: 0.7;
-  /* padding: 20px 40px; */
-  border-radius: 12px;
-  text-align: center;
- width: 55vw;
-  /* width: 100%; */
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
-}
+
  
   
 }
@@ -176,15 +173,28 @@ body {
 @media (max-width: 480px) {
   .container {
     flex-wrap: wrap;
-
+ 
+    text-align: center;
+   width: 55vw;
+   height: max-content;
+   
+    display: flex;
+    justify-content: center;
+    
   }
 
   .weather-info h2 {
-    font-size: 18px;
+    font-size: 15px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
 
   .weather-info p {
     font-size: 12px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
 
   .weather-icon {
@@ -213,25 +223,12 @@ body {
   overflow: hidden;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.9);
-  opacity: 0.7;
-  /* padding: 20px 40px; */
-  border-radius: 12px;
-  text-align: center;
- width: 55vw;
-  /* width: 100%; */
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
-}
+
 }
 
 
 @media (max-width: 668px) {
-  .container {
-  flex-wrap: wrap;
-  }
+  
 
   input[type="text"],
   input[type="submit"] {
@@ -239,17 +236,17 @@ body {
   }
 
   .weather-info h2 {
-    font-size: 20px;
-    display: flex;
+    font-size: 15px;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .weather-info p {
-    font-size: 14px;
-    display: flex;
+    font-size: 12px;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
   }
 
   .weather-icon {
@@ -279,16 +276,15 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.9);
-  opacity: 0.7;
-  /* padding: 20px 40px; */
-  border-radius: 12px;
+  flex-wrap: wrap;
+
   text-align: center;
  width: 55vw;
-  /* width: 100%; */
+ height: max-content;
+ 
   display: flex;
   justify-content: center;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.45) inset;
+  
 }
   
 }
