@@ -38,21 +38,31 @@ const setWeatherBackground = (weatherCondition) => {
     case 'haze':
       document.getElementById('haze').style.display = 'block';
       break;
+
+
+      case'mist':
+      document.getElementById('mist').style.display = 'block';
+      break;
+      
     default:
       document.getElementById('clear-sky').style.display = 'block';
       break;
+
   }
 };
 
 const displayData = (data, elementId) => {
   const weatherInfo = document.getElementById(elementId);
   const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-  
+
+  const temp = Math.round(data.main.temp);
+  const feelsLike = Math.round(data.main.feels_like);
+
   weatherInfo.innerHTML = `
     <h1>${data.name}, ${data.sys.country}</h1>
     <img src="${iconUrl}" alt="${data.weather[0].description}" class="weather-icon">
     <p>${data.weather[0].main}: ${data.weather[0].description}</p>
-    <h2>Temperature: ${data.main.temp}°C (Feels like: ${data.main.feels_like}°C)</h2>
+    <h2>Temperature: ${temp}°C (Feels like: ${feelsLike}°C)</h2>
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Pressure: ${data.main.pressure} hPa</p>
     <p>Wind: ${data.wind.speed} m/s at ${data.wind.deg}°</p>
