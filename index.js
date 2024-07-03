@@ -43,7 +43,7 @@ const setWeatherBackground = (weatherCondition) => {
       case'mist':
       document.getElementById('mist').style.display = 'block';
       break;
-      
+
     default:
       document.getElementById('clear-sky').style.display = 'block';
       break;
@@ -83,6 +83,7 @@ const getCurrentLocationWeather = () => {
     const { latitude, longitude } = position.coords;
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     getData(apiUrl, 'live-location');
+    console.log(position.coords);
   });
 };
 
