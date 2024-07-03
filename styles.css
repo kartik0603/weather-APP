@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   overflow: hidden;
 }
@@ -159,7 +159,7 @@ body {
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   margin: 0;
   overflow: hidden;
@@ -217,7 +217,7 @@ body {
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   margin: 0;
   overflow: hidden;
@@ -269,7 +269,7 @@ body {
   /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   margin: 0;
   overflow: hidden;
